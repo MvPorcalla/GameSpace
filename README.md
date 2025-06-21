@@ -2,7 +2,7 @@
 
 **GameSpace** is a personal project that showcases a growing collection of my **web-based games** built using **HTML**, **CSS**, and **JavaScript**. Inspired by classic retro aesthetics, this responsive game hub serves as a central place to explore, launch, and enjoy the games I've created.
 
-![GameSpace Preview](./assets/images/logo.jpg)
+![GameSpace Preview](./assets/images/background/Leonardo_Anime_XL_4K_cinematic_wallpaper_A_vibrant_fantasy_gam_1.jpg)
 
 ---
 
