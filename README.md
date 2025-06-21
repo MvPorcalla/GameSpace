@@ -1,0 +1,1 @@
+GameVerse is a personal project that showcases a growing collection of my web-based games built using HTML, CSS, and JavaScript. Inspired by classic retro aesthetics, this responsive game hub serves as a central place to explore, launch, and enjoy the games I've created.
