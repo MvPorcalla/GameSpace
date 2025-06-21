@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" href="./assets/images/icons/favicon.png" type="image/png" />
+  <title>GameVerse - Game Collection</title>
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet" />
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="assets/css/GTVstyles.css" />
+
+  <style>
+    /* Loader Styling */
+    #pageLoader {
+      transition: opacity 0.4s ease;
+      z-index: 9999;
+    }
+    #pageLoader.hide {
+      opacity: 0;
+      pointer-events: none;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 🔄 Page Loader -->
+  <div id="pageLoader" class="position-fixed top-0 start-0 w-100 h-100 bg-dark d-flex justify-content-center align-items-center">
+    <div class="text-center">
+      <div class="spinner-border text-light" role="status"></div>
+      <p class="text-light mt-3">Loading...</p>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header>
+    <nav class="navbar navbar-expand-lg">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">GameTextVerse</a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Main Content -->
+  <main>
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="container">
+        <h1 class="typing-text">Enter the World of Games</h1>
+        <p>A collection of games projects all in one place.</p>
+        <a href="#games" class="btn btn-main mt-3">Explore Games</a>
+      </div>
+    </section>
+
+    <!-- Game Section -->
+    <section class="py-4" id="games">
+      <div class="container-fluid px-4">
+        <h2 class="text-center mb-4">Featured Games</h2>
+        <div class="row g-3">
+
+          <!-- Example Game Card -->
+          <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+            <div class="game-card position-relative overflow-hidden text-white">
+              <div class="game-thumb">
+                <img src="./assets/images/logo.jpg" alt="Pixel Quest" loading="lazy" class="game-img" />
+                <div class="dark-overlay"></div>
+              </div>
+              <div class="card-title-overlay position-absolute top-0 w-100 text-center p-1">
+                <h6 class="m-0">Wishing Game</h6>
+              </div>
+              <div class="card-button-overlay position-absolute bottom-0 w-100 text-center p-2">
+                <button type="button" class="btn btn-main btn-sm w-100" onclick="showLoadingAndRedirect('./GamesPage/wish/index.html')">
+                  Play
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Add more cards as needed -->
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    &copy; 2025 GameVerse. All rights reserved.
+  </footer>
+
+  <!-- Loading Overlay (for Play button redirect) -->
+  <div id="loadingOverlay" class="d-none position-fixed top-0 start-0 w-100 h-100 bg-dark bg-opacity-75 d-flex justify-content-center align-items-center z-3">
+    <div class="text-center">
+      <div class="spinner-border text-light" role="status"></div>
+      <p class="text-light mt-3">Loading game...</p>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script>
+    // Page loader fade out
+    window.addEventListener("load", function () {
+      const loader = document.getElementById("pageLoader");
+      if (loader) {
+        loader.classList.add("hide");
+        setTimeout(() => loader.remove(), 400);
+      }
+    });
+
+    // Reset loader when user goes back via browser
+    window.addEventListener("pageshow", function () {
+      const loader = document.getElementById("loadingOverlay");
+      if (loader) loader.classList.add("d-none");
+    });
+
+    // Play button loader
+    function showLoadingAndRedirect(targetUrl) {
+      const overlay = document.getElementById("loadingOverlay");
+      overlay.classList.remove("d-none");
+
+      setTimeout(() => {
+        window.location.href = targetUrl;
+      }, 1000);
+    }
+  </script>
+</body>
+</html>
